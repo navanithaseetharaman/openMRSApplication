@@ -3,8 +3,6 @@ Feature: Verification of login functionality for OpenMRS Application
 @regressionTest
 Scenario: Validate login success (positive case)
     Given Open the browser and launch the application
- #   Then Enter the Username
-  #  And Enter the Password
     Then Enter Username as "Admin"
     And Enter Password as "Admin123"
     And Select the Isolation ward
@@ -32,3 +30,11 @@ Scenario Outline: Validate login success (positive case)
   |Admin|Admin123|Isolation Ward|
   |Admin456|Admin000|Registration Desk|
   
+  @BuildVerificationTest
+Scenario: Validate login success using DataTables (positive case)
+    Given Open the browser and launch the application
+    Then Enter Username and password
+    |Admin|Admin123|
+    And Select the Isolation ward1
+    
+   

@@ -7,12 +7,15 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(	features = "src/test/java/features/login.feature",
-					glue = {"stepDefinition" },
+					glue = {"stepDefinition", "hooks"},
 					dryRun = false, 
 					monochrome = true,
-					tags= ("@smokeTest"),
-					plugin = { "pretty", 
-							"html:target/cucumber-reports" })
+					tags= "@BuildVerificationTest or @regressionTest",
+					publish = true,
+					plugin = { "pretty", 						
+							"json:target/cucumber/cucumberReport.json",
+							"junit:target/cucumber/cucumberReport.xml",
+							"html:target/cucumber/cucumberReport.html" })
 // extends AbstractTestNGCucumberTests   
 
 public class runner {
